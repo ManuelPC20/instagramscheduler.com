@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ user.name }}!</h1>
+    <h2>User ID: {{ user.id }}</h2>
+    <h2>Your Registered Posts:</h2>
+    <ul>
+        {% for post in user.posts %}
+            <li>{{ post.post }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Previous Posts:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Post</th>
+            <th>Post Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set counter = 1 %}
+        {% for post in previous_posts %}
+        <tr>
+            <td>{{ counter }}</td>
+            <td>{{ post.post }}</td>
+            <td>{{ post.post_time }}</td>
+            <td>
+                <form method="POST" action="/delete_post/{{ post.id }}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% set counter = counter + 1 %}
+        {% endfor %}
+    </tbody>
+</table>
+
+    <a href="/register_post" class="btn btn-primary float-right">Register Post</a>
+{% endblock %}

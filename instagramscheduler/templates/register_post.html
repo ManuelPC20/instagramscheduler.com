@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Register Post{% endblock %}
+
+{% block content %}
+    <h1>Register Post</h1>
+    <h3>Welcome, {{ user.name }}!</h3>
+    <form method="POST" action="/register_post" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+        </div>
+        <div class="form-group">
+            <label for="post">Post</label>
+            <textarea class="form-control" id="post" name="post" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="post_time">Post Time</label>
+            <input type="datetime-local" class="form-control" id="post_time" name="post_time" required>
+        </div>
+        <div class="form-group">
+            <label for="photo">Photo</label>
+            <input type="file" class="form-control-file" id="photo" name="photo" accept="image/jpeg">
+        </div>
+        <button type="submit" class="btn btn-primary">Register Post</button>
+    </form>
+{% endblock %}

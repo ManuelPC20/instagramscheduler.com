@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <h1>Register</h1>
+    <form method="POST" action="/register">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="instagram_id">Instagram ID</label>
+            <input type="text" class="form-control" id="instagram_id" name="instagram_id" required>
+        </div>
+        <div class="form-group">
+            <label for="instagram_token">Instagram Token</label>
+            <input type="text" class="form-control" id="instagram_token" name="instagram_token" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+{% endblock %}
